@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Mostrar el tooltip después de 10 segundos
     setTimeout(function() {
         tooltip.classList.add('active');
-    }, 5000); // 10 segundos
+    }, 5000); // 5 segundos
 
     // Ocultar el tooltip después de 40 segundos
     setTimeout(function() {
         tooltip.classList.remove('active');
-    }, 30000); // 50 segundos (10s + 40s)
+    }, 15000); // 15 segundos (10s + 40s)
 });
       
 const notification = document.getElementById('notification');
