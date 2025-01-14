@@ -1,0 +1,584 @@
+        :root {
+            --text-color: #1d1d1f;
+            --background: #fff;
+            --highlight: #ff6ec7;
+            --notification-bg: rgba(0, 0, 0, 0.8);
+            --transition: all 0.5s ease;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, white, pink);
+             
+            color: var(--text-color);
+            user-select: none;
+            scroll-behavior: smooth;
+        }
+        p {
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 2rem;
+}
+
+.grid-item {
+    position: relative;
+    
+    padding: 2rem;
+    overflow: hidden; /* Asegura que no haya elementos desbordados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación elegante */
+}
+
+.grid-item:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.grid-item img {
+    width: 120px; /* Tamaño ajustado de la imagen */
+    height: 120px;
+    object-fit: cover; /* Ajusta sin deformar */
+    
+}
+
+.overlay-text-container {
+    
+    color: #000; /* Texto blanco */
+    font-weight: 600; /* Peso del texto */
+    padding: 1.5rem; /* Espaciado interno */
+    border-radius: 12px; /* Bordes redondeados */
+    margin: 0 auto; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra */
+    backdrop-filter: blur(10px); /* Desenfoque para efecto cristal */
+    max-width: 90%; /* Ajusta al contenido */
+}
+
+.overlay-text-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333; /* Rosado suave */
+}
+
+.overlay-text-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #222; /* Rosado pastel */
+    margin: 0;
+}
+
+
+
+        .block {
+            padding: 2rem;
+            
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .separator {
+            margin: 1rem auto;
+            height: 4px;
+            background: var(--highlight);
+            width: 50%;
+        }
+        .notification {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--notification-bg);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 400px;
+            transition: var(--transition);
+        }
+        .notification.show {
+            bottom: 20px;
+        }
+        .notification button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Course Block Styles */
+        .course-block {
+            position: relative;
+            overflow: hidden;
+            
+        }
+        .course-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .course-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #ff0080;
+            margin: 1rem 0;
+        }
+        .course-description {
+            background: rgba(255, 105, 180, 0.8);
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            color: white;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Estilo para las 3 sesiones */
+        .session-container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 238, 243, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        .session-container h2 {
+            color: #ff007f;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .session-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            padding: 15px;
+        }
+        .session-card p {
+            margin: 0;
+            color: #333;
+            font-size: 16px;
+            flex: 1;
+        }
+        .checkmark {
+            background-color: #ff007f;
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .checkmark-yellow {
+            background-color: yellow;
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+    .video-container {
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+        margin: 2rem auto;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+        background: radial-gradient(circle, rgba(255, 182, 193, 0.3), transparent 80%);
+        padding: 10px;
+        overflow: hidden;
+    }
+    .video-container iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 10px;
+        display: block;
+    }
+    @media (max-width: 768px) {
+        .video-container iframe {
+            height: 300px;
+        }
+    }
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    margin: 1rem 0;
+    color: #ff6ec7; /* Rosa para la primera línea */
+}
+
+h3 span.poco-grande {
+    font-size: 1.5rem; /* Más grande que la primera línea */
+    color: #1d1d1f; /* Negro fuerte */
+    display: block; /* Asegura que sea visible en la segunda línea */
+}
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    margin: 1rem 0;
+    color: #ff6ec7; /* Rosa para la primera línea */
+}
+
+h1 span.poco-grande {
+    font-size: 1.5rem; /* Más grande que la primera línea */
+    color: #1d1d1f; /* Negro fuerte */
+    display: block; /* Asegura que sea visible en la segunda línea */
+}
+/*Furntes*/
+.barlow-condensed-thin {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.barlow-condensed-extralight {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.barlow-condensed-light {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.barlow-condensed-regular {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.barlow-condensed-medium {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.barlow-condensed-semibold {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.barlow-condensed-bold {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.barlow-condensed-extrabold {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.barlow-condensed-black {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.barlow-condensed-thin-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.barlow-condensed-extralight-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.barlow-condensed-light-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.barlow-condensed-regular-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.barlow-condensed-medium-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.barlow-condensed-semibold-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.barlow-condensed-bold-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.barlow-condensed-extrabold-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.barlow-condensed-black-italic {
+  font-family: "Barlow Condensed", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+.lilita-one-regular {
+  font-family: "Lilita One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Estilo para la sección */
+.signals-container {
+    text-align: center;
+    color: #ff6ec7;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+}
+
+.signals-container h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff6ec7;
+}
+
+.signals-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffcc; /* Verde brillante */
+    margin-bottom: 20px;
+}
+
+.signals-container .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #ff66cc, #ff99cc); /* Gradiente rosado */
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 15px #ff99cc; /* Sombra rosada */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.signals-container .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff99cc; /* Sombra más intensa en hover */
+}
+
+.signals-container .btn .icon {
+    margin-right: 10px;
+}
+
+.signals-container .live-ops {
+    background-color: #003300; /* Verde oscuro */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: inline-block;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+.signals-container .live-ops p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.signals-container .arrow {
+    margin-top: 20px;
+    text-align: center; /* Centra el contenedor */
+}
+
+.signals-container .arrow img {
+    display: inline-block; /* Centra la imagen dentro del contenedor */
+    width: 50px; /* Ajusta el tamaño de la flecha */
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+.button-container {
+  display: flex;
+  justify-content: center; /* Centrar los botones */
+  gap: 10px; /* Espaciado entre botones */
+  padding: 0 10px; /* Margen lateral reducido */
+  flex-wrap: wrap; /* Permite que los botones se ajusten en líneas si es necesario */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  max-width: 100%; /* Asegura que no excedan el ancho del contenedor */
+  justify-content: center;
+  box-sizing: border-box;
+  flex: 1; /* Permite que los botones se ajusten proporcionalmente */
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}
+
+.facebook {
+  background-color: #1877F2; /* Color de Facebook */
+  color: white;
+}
+
+.instagram {
+  background-color: #E1306C; /* Color de Instagram */
+  color: white;
+}
+
+.whatsapp {
+  background-color: #25D366; /* Color de WhatsApp */
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+/* Ocultar por defecto en pantallas grandes */
+.mobile-button-container {
+    display: none;
+}
+
+/* Mostrar y posicionar el botón en dispositivos móviles */
+@media (max-width: 768px) {
+    .mobile-button-container {
+        display: block;
+        position: fixed;
+        bottom: 20px; /* Espacio desde la parte inferior */
+        right: 20px; /* Espacio desde la parte derecha */
+        z-index: 1000; /* Asegura que el botón esté sobre otros elementos */
+    }
+
+    .mobile-button {
+        display: inline-block;
+        transition: transform 0.5s ease-in-out;
+        animation: zoomEffect 3s infinite;
+    }
+
+    .mobile-button img {
+        width: 200px; /* Doble del tamaño original */
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Efecto de zoom infinito */
+    @keyframes zoomEffect {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    /* Tooltip estilo */
+    .tooltip {
+        position: absolute;
+        bottom: 100%; /* Posiciona el tooltip arriba del botón */
+        right: 0;
+        color: red; /* Texto blanco */
+        padding: 10px;
+        0 black, 
+        1px -1px 0 black, 
+        -1px 1px
+        border-radius: 5px;
+        font-size: 1rem;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 1001; /* Asegura que esté sobre el botón */
+    }
+
+    .tooltip.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.nota {
+    display: inline-block;
+    color: white; /* Color del texto */
+    background-color: rgba(255, 0, 0, 0.5); /* Fondo rojo semitransparente */
+    border: 2px solid red; /* Borde rojo */
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 
+        -1px -1px 0 black, 
+        1px -1px 0 black, 
+        -1px 1px 0 black, 
+        1px 1px 0 black; /* Simula un trazo negro */
+    transform: rotate(-5deg); /* Inclinar ligeramente el texto */
+    font-weight: bold;
+    font-size: 1rem;
+}
