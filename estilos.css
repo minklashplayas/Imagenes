@@ -449,17 +449,7 @@ h1 span.poco-grande {
 
 .signals-container .arrow img {
     display: inline-block; /* Centra la imagen dentro del contenedor */
-    width: 50px; /* Ajusta el tamaño de la flecha */
-    animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+    width: 80px; /* Ajusta el tamaño de la flecha */
 }
 .button-container {
   display: flex;
@@ -586,4 +576,34 @@ h1 span.poco-grande {
     transform: rotate(-5deg); /* Inclinar ligeramente el texto */
     font-weight: bold;
     font-size: 1rem;
+}
+.container-recibir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.h2-simulado {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(to right, #ff0099, #ff66cc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.h2-simulado::after {
+    content: '';
+    display: block;
+    width: 110%;
+    height: 6px;
+    background: linear-gradient(to right, #ff0099, #ff66cc);
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    position: relative;
+    transform: skewX(-20deg);
+    right: -5%;
 }
