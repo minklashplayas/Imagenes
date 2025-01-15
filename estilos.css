@@ -573,7 +573,6 @@ h1 span.poco-grande {
         1px -1px 0 black, 
         -1px 1px 0 black, 
         1px 1px 0 black; /* Simula un trazo negro */
-    transform: rotate(-5deg); /* Inclinar ligeramente el texto */
     font-weight: bold;
     font-size: 1rem;
 }
@@ -606,4 +605,45 @@ h1 span.poco-grande {
     position: relative;
     transform: skewX(-20deg);
     right: -5%;
+}
+.centrado-cita {
+  position: relative;
+  font-size: 1.5rem; /* Tamaño del texto similar a un h2 */
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(135deg, #b88, #d609db); /* Gradiente rosita */
+  -webkit-background-clip: text; /* Necesario para que el gradiente se aplique solo al texto */
+  color: transparent; /* Hace que el color del texto sea transparente para que se vea el gradiente */
+  margin: 20px auto; /* Centra el texto con márgenes laterales automáticos */
+  padding: 0 40px; /* Espacio interno para que las comillas no salgan del contenedor */
+  max-width: 800px; /* Ancho máximo del contenedor */
+  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+}
+
+.centrado-cita:before,
+.centrado-cita:after {
+  content: '"'; /* Contenido de las comillas */
+  font-size: 3rem; /* Tamaño de las comillas mayor que el texto */
+  color: #ff66b2; /* Color rosita para las comillas */
+  position: absolute;
+  top: 50%; /* Centra verticalmente las comillas */
+  transform: translateY(-50%); /* Ajuste vertical */
+}
+
+.centrado-cita:before {
+  left: 10px; /* Posiciona la comilla izquierda dentro del contenedor */
+}
+
+.centrado-cita:after {
+  right: 10px; /* Posiciona la comilla derecha dentro del contenedor */
+}
+.span-rosa {
+  color: #ff6ec7;
+}
+
+.cursiva {
+  font-family: "Playwrite AU SA", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
